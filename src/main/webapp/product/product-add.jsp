@@ -64,21 +64,21 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">活动：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea   name="activity" cols="" rows="" class="textarea"  placeholder="活动信息...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)">${requestScope.info.activity}</textarea>
+				<textarea   name="activity" cols="" rows="" class="textarea"  placeholder="活动信息...最少输入2个字符" datatype="*2-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)">${requestScope.info.activity}</textarea>
 				
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">促销信息：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="sale" cols="" rows="" class="textarea"  placeholder="促销信息...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)">${requestScope.info.sale}</textarea>
+				<textarea name="sale" cols="" rows="" class="textarea"  placeholder="促销信息...最少输入2个字符" datatype="*2-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)">${requestScope.info.sale}</textarea>
 				
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">提示信息：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="tip" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)">${requestScope.info.tip}</textarea>
+				<textarea name="tip" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入2个字符" datatype="*2-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)">${requestScope.info.tip}</textarea>
 				
 			</div>
 		</div>
@@ -154,6 +154,7 @@ function  save() {
 			timeout:1000,
 			data: $('.form-horizontal').serialize(),
 			success:function(dates){
+				
 				window.parent.location.reload();
 			}
 		});

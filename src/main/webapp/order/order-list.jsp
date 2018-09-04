@@ -30,11 +30,11 @@
 	<div class="page-container">
 		
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
-			<div class="text-c"> 日期范围：
+			<div class="text-c"><!--  日期范围：
 				<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}' })" id="logmin" class="input-text Wdate" style="width:120px;">
 				-
 				<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d' })" id="logmax" class="input-text Wdate" style="width:120px;">
-				<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜商品</button>
+				<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜商品</button> -->
 			<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
 			</div>
 		</div>
@@ -88,7 +88,7 @@
  						<td class="td-status"><span class="label label-success radius" id="mainContent${r.id}">${r.assessstatus_name}</span></td>
 						  </c:if>
 						 <td class="td-manage">
-						 <a style="text-decoration:none;" onClick="order_send()" href="javascript:;" title="发货"><i class="Hui-iconfont">&#xe634;</i></a>
+						 <a style="text-decoration:none;" onClick="order_send(${r.id})" href="javascript:;" title="发货"><i class="Hui-iconfont">&#xe634;</i></a>
 						 <a style="text-decoration:none" class="ml-5" onClick="product_see('订单详情','seedetails?orders_id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
 						 </td>
 						</c:if>
@@ -207,6 +207,23 @@ function order_refused() {
 	layer.msg('已拒绝申请!',{icon:1,time:1000});
 }
 
+function order_send(id) {
+	$.ajax({
+		url:'order_send',
+		data:{id:id},
+		type:"post",
+		success:function(res){
+			if(res.status==1){
+				layer.msg('发货成功',{icon:1,time:1000});
+				location.reload();
+			}else{
+				layer.msg('请重新发货',{icon:1,time:1000});
+			}
+		}
+	});
+	
+}
+
 function order_agree(obj,id){
 	layer.confirm('确认同意退货吗？',function(index){
 		var url = "agree?id="+id;
@@ -255,15 +272,6 @@ function order_refuse(obj,id){
 	});
 }
 /*产品-查看*/
-function product_show(title,url,id){
-	var index = layer.open({
-		type: 2,
-		title: title,
-		content: url
-	});
-	layer.full(index);
-}
-
 
 function product_see(title,url) {
 	var index = layer.open({

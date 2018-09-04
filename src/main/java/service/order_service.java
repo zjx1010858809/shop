@@ -10,4 +10,5 @@ public interface order_service {
 	public void refuse(int id);
 	public List<Order> byId(int id);
 	public List<Order> seedetails(int orders_id);
+	public int order_send(int id);
 }

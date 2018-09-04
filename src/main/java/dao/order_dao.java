@@ -20,5 +20,6 @@ public interface order_dao {
     public List<Order> byId(int id);
     @Select("select o.code,p.fullname,od.count,o.comments from orders o inner join orders_details od inner join product p on o.id=od.orders_id and od.product_id=p.id where od.orders_id=#{orders_id}")
     public List<Order> seedetails(int orders_id);
-	
+    @Update("update orders set status=2 where id=#{id}") 
+    public int order_send(int id);
 }

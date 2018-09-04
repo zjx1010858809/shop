@@ -11,5 +11,5 @@ public interface user_service {
 	public void update_off(Integer id);	
 	public void update_on(Integer id);
 	public List<user> byId(int id);
-	public void updatepass(user ad);
+	public int urepass(int id);
 }

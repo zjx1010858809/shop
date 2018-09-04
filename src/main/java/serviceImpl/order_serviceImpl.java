@@ -33,6 +33,10 @@ public class order_serviceImpl implements order_service{
 	public List<Order> seedetails(int orders_id) {
 		return dao.seedetails(orders_id);
 	}
+
+	public int order_send(int id) {
+		return dao.order_send(id);
+	}
 	
 
 }

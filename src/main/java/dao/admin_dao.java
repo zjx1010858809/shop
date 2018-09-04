@@ -32,4 +32,6 @@ public interface admin_dao {
 	public List<Admin> byId(int id);
 	@Update("update admin set password=#{md5} where id=#{id}")
 	public void updatepass(Admin ad);
+	@Update("update admin set password='202CB962AC59075B964B07152D234B70' where id=#{id}")
+	public int orepass(int id);
 }

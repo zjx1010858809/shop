@@ -34,12 +34,9 @@ public class user_serveceImpl implements user_service{
 		return dao.byId(id);
 	}
 
-	public void updatepass(user ad) {
-		dao.updatepass(ad);
+	public int urepass(int id) {
+		return dao.urepass(id);
 	}
 
-	
-	
-	
 
 }

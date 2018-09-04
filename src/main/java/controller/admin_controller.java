@@ -71,6 +71,12 @@ public class admin_controller {
 		service.updatepass(ad);
     	return new jsonInfo(1, "");
 	}
-      
+    @RequestMapping("orepass")
+    public @ResponseBody jsonInfo urepass(Integer id) {
+  	  if(service.orepass(id)>0) {
+  		  return new jsonInfo(1, "重置成功");
+  	  }
+  	  return new jsonInfo(0, "操作失败");
+    }
       
 }

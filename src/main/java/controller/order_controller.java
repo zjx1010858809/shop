@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import entity.Order;
+import jsonInfo.jsonInfo;
 import service.order_service;
 
 @Controller
@@ -34,11 +35,17 @@ public class order_controller {
     	return list;
     }
     @RequestMapping("seedetails")
-	  public String see(Integer orders_id,ModelMap m) {
-		  
-		  m.put("list",service.seedetails(orders_id));
-		  
+	  	public String see(Integer orders_id,ModelMap m) {
+    	m.put("list",service.seedetails(orders_id));
 		return "order/details-see";
 	}
+    @RequestMapping("order_send")
+  	public @ResponseBody jsonInfo order_send(Integer id) {
+    	if(service.order_send(id)>0) {
+    		return new jsonInfo(1, "");
+    	}else {
+    		return new jsonInfo(0, "");
+    		}
+    	}
     
 }

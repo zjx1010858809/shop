@@ -37,6 +37,14 @@ public class user_controller {
 		 List<user> list=service.byId(id);
 		 return list;
 	}
+      
+      @RequestMapping("urepass")
+      public @ResponseBody jsonInfo urepass(Integer id) {
+    	  if(service.urepass(id)>0) {
+    		  return new jsonInfo(1, "重置成功");
+    	  }
+    	  return new jsonInfo(0, "操作失败");
+      }
     
       
 }

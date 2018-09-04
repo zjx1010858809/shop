@@ -30,7 +30,7 @@ public class loginfilter implements Filter {
 		    if(req.getSession().getAttribute("user")!=null||req.getAttribute("nike")!=null||req.getRequestURI().equals("/login")) {
 				fc.doFilter(req, resp);
 			}else {
-				resp.sendRedirect("login.jsp");
+				resp.sendRedirect("../shop/login.jsp");
 			}
 		
 	}

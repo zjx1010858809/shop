@@ -22,6 +22,6 @@ public interface user_dao {
     public void update_on(Integer id);
 	@Select("select * from user where id=#{id}")
 	public List<user> byId(int id);
-	@Update("update user set password=#{md5} where id=#{id}")
-	public void updatepass(user ad);
+	@Update("update user set password='202CB962AC59075B964B07152D234B70' where id=#{id}")
+	public int urepass(int id);
 }

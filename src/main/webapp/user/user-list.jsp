@@ -21,6 +21,7 @@
 <link rel="stylesheet" type="text/css" href="../lib/Hui-iconfont/1.0.8/iconfont.css" />
 <link rel="stylesheet" type="text/css" href="../static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="../static/h-ui.admin/css/style.css" />
+<link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--[if IE 6]>
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -111,19 +112,25 @@ function admin_start(obj,id){
 	        }
 		});
 	});
-
-
+}
+//密码重置
+function admin_urepass(id){
+	if(confirm("确认重置密码？")){
+		$.ajax({
+			url:'urepass',
+			type:"post",
+			data:{id:id},
+			success:function(res){
+				if(res.status==1){
+					alert(res.text);
+				}else{
+					alert(res.text);
+				}
+			}
+		});
+	}
 }
 
-$(function(){
-	$(".sselect").on("change",function(){
-		$(".sinput").css("display","none").attr("disabled","disabled");
-		$($(".sinput")[$(".sselect").val()]).css("display","inline").removeAttr("disabled");
-	});
-	
-	$(".sselect").val(select);
-	$($(".sinput")[select]).css("display","inline").removeAttr("disabled").val(txt);
-});
 </script>
 <title>用户列表</title>
 </head>
@@ -160,12 +167,17 @@ $(function(){
 				<c:if test="${r.status==0}">
 				<td class="td-status"><span class="label label-success radius" id="mainContent${r.id}">${r.status_name}</span></td>
 				<td class="td-manage"><a style="text-decoration:none;" id="off${r.id}"  onClick="admin_stop(this,${r.id})" href="javascript:;" title="封号"><i class="Hui-iconfont">&#xe631;</i></a>
-				                      <a id="on${r.id}" onClick="admin_start(this,${r.id})" href="javascript:;" title="解封" style="text-decoration:none;display: none;"><i class="Hui-iconfont">&#xe615;</i></a></td>
+				                      <a id="on${r.id}" onClick="admin_start(this,${r.id})" href="javascript:;" title="解封" style="text-decoration:none;display: none;"><i class="Hui-iconfont">&#xe615;</i></a>
+				                      <a onClick="admin_urepass(${r.id})" href="javascript:;" title="密码重置" style="text-decoration:none;margin-left: 10px;"><i class="fa fa-repeat" aria-hidden="true"></i></a>
+				                      
+				                      </td>
 				</c:if>
 				<c:if test="${r.status==1}">
 				<td class="td-status"><span class="label label-success radius" id="mainContent${r.id}" style="background-color: #999999">${r.status_name}</span></td>
 				<td class="td-manage"><a style="text-decoration:none;display: none;" id="off${r.id}"  onClick="admin_stop(this,${r.id})" href="javascript:;" title="封号"><i class="Hui-iconfont">&#xe631;</i></a>
-				                      <a id="on${r.id}" onClick="admin_start(this,${r.id})" href="javascript:;" title="解封" style="text-decoration:none;"><i class="Hui-iconfont">&#xe615;</i></a></td>
+				                      <a id="on${r.id}" onClick="admin_start(this,${r.id})" href="javascript:;" title="解封" style="text-decoration:none;"><i class="Hui-iconfont">&#xe615;</i></a>
+				                      <a onClick="admin_urepass(${r.id})" href="javascript:;" title="密码重置" style="text-decoration:none;margin-left: 10px;"><i class="fa fa-repeat" aria-hidden="true"></i></a>
+				                      </td>
 				</c:if>
 				
 				</tr>
