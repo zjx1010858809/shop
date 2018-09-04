@@ -22,7 +22,7 @@
          <filter-class>servlet.loginfilter</filter-class>
          <init-param>
               <param-name>ex</param-name>
-              <param-value>login.jsp,.css,.ttf,.woff,.js,.png,.jpg,login,img</param-value>
+              <param-value>login.jsp,.css,.ttf,.woff,.js,.png,.jpg,img,login</param-value>
          </init-param>
     </filter>   
     <filter-mapping>

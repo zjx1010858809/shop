@@ -29,6 +29,10 @@ public class order_serviceImpl implements order_service{
 	public void refuse(int id) {
 		dao.refuse(id);
 	}
+
+	public List<Order> seedetails(int orders_id) {
+		return dao.seedetails(orders_id);
+	}
 	
 
 }

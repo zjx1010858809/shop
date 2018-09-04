@@ -39,7 +39,7 @@ public class type_controller {
 	  public void selectproduct(ModelMap m) {
 		  m.put("list",pservice.select());
 	  }
-	  @RequestMapping("product-list-typeid")         //¸ù¾ÝÀàÐÍid²éÑ¯ÉÌÆ·
+	  @RequestMapping("product-list-typeid")         //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½idï¿½ï¿½Ñ¯ï¿½ï¿½Æ·
 	  public void productByid(ModelMap m,int id) {
 		  m.put("list1",id);
 		  m.put("list",pservice.byTypeid(id));
@@ -98,7 +98,7 @@ public class type_controller {
 		 List<Product> list=pservice.byId(id);
 		 return list;
 	}
-	  @RequestMapping("see")
+	  @RequestMapping("seeproduct")
 	  public String see(int id,ModelMap m) {
 		  
 		  m.put("list",pservice.see(id));

@@ -63,14 +63,13 @@ function admin_add(title,url,w,h){
 	layer_show(title,url,w,h);
 }
 
-
 /*管理员-编辑*/
 function admin_edit(title,url,id,w,h){
 	layer_show(title,url,w,h);
 }
 /*管理员-停用*/
 function admin_stop(obj,id){
-	layer.confirm('确认要开除吗？',function(index){
+	layer.confirm('确认要封号吗？',function(index){
 		var url = "update_off?id="+id;
 		$.ajax({
 			type : "post",
@@ -82,7 +81,7 @@ function admin_stop(obj,id){
 			$('#mainContent'+dates[0].id).css("background-color","#999999");
 			$('#off'+dates[0].id).css("display","none");
 			$('#on'+dates[0].id).css("display","inline-block");
-			layer.msg('已开除!',{icon:1,time:1000});
+			layer.msg('已封号!',{icon:1,time:1000});
 			},
 			error: function() {
 	           // alert("失败，请稍后再试！");
@@ -93,7 +92,7 @@ function admin_stop(obj,id){
 
 /*管理员-启用*/
 function admin_start(obj,id){
-	layer.confirm('确认要启用吗？',function(index){
+	layer.confirm('确认要解封吗？',function(index){
 		var url = "update_on?id="+id;
 		$.ajax({
 			type : "post",
@@ -105,7 +104,7 @@ function admin_start(obj,id){
 			$('#mainContent'+dates[0].id).css("background-color","#5EB95E");
 			$('#on'+dates[0].id).css("display","none");
 			$('#off'+dates[0].id).css("display","inline-block");
-			layer.msg('已启用!',{icon:1,time:1000});
+			layer.msg('已解封!',{icon:1,time:1000});
 			},
 			error: function() {
 	           // alert("失败，请稍后再试！");
@@ -126,13 +125,13 @@ $(function(){
 	$($(".sinput")[select]).css("display","inline").removeAttr("disabled").val(txt);
 });
 </script>
-<title>管理员列表</title>
+<title>用户列表</title>
 </head>
 
 <body style="top:-40px;">
 <div class="page-container" >
 	
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="admin_add('添加管理员','add','800','460')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加管理员</a></span>
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
 	<a class="btn btn-success radius r" id="a" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
 	</div>
 	<table class="table table-border table-bordered table-bg table-hover table-sort">
@@ -142,35 +141,32 @@ $(function(){
 			</tr>
 			<tr class="text-c">
 				<th width="100">用户名</th>
-				<th width="100">姓名</th>
-				<th width="90">性别</th>
 				<th width="100">手机号</th>
-				<th width="100">权限</th>
-				<th width="100">是否在职</th>
+				<th width="60">等级</th>
+				<th width="150">累计金额</th>
+				<th width="150">备注</th>
+				<th width="70">当前状态</th>
 				<th width="100">操作</th>
 			</tr>
 		</thead>
 		<tbody>
 				<c:forEach items="${requestScope.list}" var="r">
 				<tr class="text-c">
-				<td>${r.nike}</td>
-				<td>${r.name}</td>
-				<td>${r.sex_name}</td>
+				<td>${r.email}</td>
 				<td>${r.tel}</td>
-				<td>${r.power_name}</td>
+				<td>${r.level}</td>
+				<td>${r.amount}</td>
+				<td>${r.comments}</td>
 				<c:if test="${r.status==0}">
 				<td class="td-status"><span class="label label-success radius" id="mainContent${r.id}">${r.status_name}</span></td>
-				<td class="td-manage"><a style="text-decoration:none;" id="off${r.id}"  onClick="admin_stop(this,${r.id})" href="javascript:;" title="开除"><i class="Hui-iconfont">&#xe631;</i></a>
-				                      <a id="on${r.id}" onClick="admin_start(this,${r.id})" href="javascript:;" title="重新启用" style="text-decoration:none;display: none;"><i class="Hui-iconfont">&#xe615;</i></a>
-				                      <a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','edit?id=${r.id}','1','800','460')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a></td>
+				<td class="td-manage"><a style="text-decoration:none;" id="off${r.id}"  onClick="admin_stop(this,${r.id})" href="javascript:;" title="封号"><i class="Hui-iconfont">&#xe631;</i></a>
+				                      <a id="on${r.id}" onClick="admin_start(this,${r.id})" href="javascript:;" title="解封" style="text-decoration:none;display: none;"><i class="Hui-iconfont">&#xe615;</i></a></td>
 				</c:if>
 				<c:if test="${r.status==1}">
 				<td class="td-status"><span class="label label-success radius" id="mainContent${r.id}" style="background-color: #999999">${r.status_name}</span></td>
-				<td class="td-manage"><a style="text-decoration:none;display: none;" id="off${r.id}"  onClick="admin_stop(this,${r.id})" href="javascript:;" title="开除"><i class="Hui-iconfont">&#xe631;</i></a>
-				                      <a id="on${r.id}" onClick="admin_start(this,${r.id})" href="javascript:;" title="重新启用" style="text-decoration:none;"><i class="Hui-iconfont">&#xe615;</i></a>
-				                      <a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','edit?id=${r.id}','1','800','460')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a></td>
+				<td class="td-manage"><a style="text-decoration:none;display: none;" id="off${r.id}"  onClick="admin_stop(this,${r.id})" href="javascript:;" title="封号"><i class="Hui-iconfont">&#xe631;</i></a>
+				                      <a id="on${r.id}" onClick="admin_start(this,${r.id})" href="javascript:;" title="解封" style="text-decoration:none;"><i class="Hui-iconfont">&#xe615;</i></a></td>
 				</c:if>
-				
 				
 				</tr>
 				 </c:forEach>

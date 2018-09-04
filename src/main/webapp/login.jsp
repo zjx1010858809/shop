@@ -13,20 +13,20 @@
 <link href="static/h-ui.admin/css/H-ui.login.css" rel="stylesheet" type="text/css" />
 <link href="static/h-ui.admin/css/style.css" rel="stylesheet" type="text/css" />
 <link href="lib/Hui-iconfont/1.0.8/iconfont.css" rel="stylesheet" type="text/css" />
-<meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
-<meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+<meta name="keywords" content="">
+<meta name="description" content="">
 <script type="text/javascript">
 if(self!=top){  
     //不是顶层页面  
       alert("您的登陆已超时，请重新登陆！");  
-      top.location.href="login.jsp";  
+      top.location.href="login.jsp";
 }
 var a=0;
 </script>
 </head>
 <body>
 <input type="hidden" id="TenantId" name="TenantId" value="" />
-<div class="header"></div>
+<div class="header" style="text-align: center;font-size: 45px;color: white;"><b>JIAXIANGSHOP</b></div>
 <div class="loginWraper">
   <div id="loginform" class="loginBox">
     <form class="form form-horizontal" action="admin-login" method="post">
@@ -47,13 +47,7 @@ var a=0;
           <input class="input-text size-L" name="code" type="text" placeholder="验证码" style="width:150px;">
           <img src="img/img.png" onclick="this.src='img/img.png?a='+(a++);"> </div>
       </div>
-      <div class="row cl">
-        <div class="formControls col-xs-8 col-xs-offset-3">
-          <label for="online">
-            <input type="checkbox" name="online" id="online" value="">
-            使我保持登录状态</label>
-        </div>
-      </div>
+     
       <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
           <input name="" type="submit" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
@@ -61,10 +55,12 @@ var a=0;
         </div>
       </div>
     </form>
+    <div style="text-align: center;">
     <font color="red" size="2"> ${msg}</font>
+    </div>
   </div>
 </div>
-<div class="footer">Copyright 你的公司名称 by H-ui.admin v3.1</div>
+<div class="footer">Copyright JIAXIANGSHOP</div>
 <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
 

@@ -24,8 +24,10 @@ public class login_controller {
     	    	return "login";
     	    }else if(service.selectbynike(a).get(0).getPassword().equals(a.getMd5())) {
     	    
+    	    	session.setAttribute("user",service.selectbynike(a).get(0));
     	    	session.setMaxInactiveInterval(600);
-    			session.setAttribute("nike",service.selectbynike(a).get(0).getNike());
+    	    	
+    			
     			session.removeAttribute("msg");
     			m.put("list",service.selectbynike(a).get(0));
     			return "index";

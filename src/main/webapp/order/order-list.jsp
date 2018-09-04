@@ -42,14 +42,13 @@
 			<table class="table table-border table-bordered table-bg table-hover table-sort" style="table-layout: fixed;">
 				<thead>
 					<tr class="text-c">
-						<th width="25"><input name="" type="checkbox" value=""></th>
-						<th width="70">日期</th>
+						<th width="60">日期</th>
 						<th width="120">订单号</th>
-						<th width="70">原金额</th>
-						<th width="70">实际金额</th>
+						<th width="80">原金额</th>
+						<th width="80">实际金额</th>
 						<th width="150">用户名</th>
 						<th width="100">地址</th>
-						<th width="50">收货人</th>
+						<th width="70">收货人</th>
 						<th width="60">状态</th>
 						<th width="60">评价状态</th>
 						<th width="80">操作</th>
@@ -58,7 +57,6 @@
 				<tbody>
 				<c:forEach items="${requestScope.list}" var="r">
 					<tr class="text-c va-m">
-						<td><input name="" type="checkbox" value=""></td>
 						<td>${r.date}</td>
 						<td>${r.code}</td>
 						<td>${r.amount}</td>
@@ -77,7 +75,7 @@
 						  </c:if>
 						<td class="td-manage">
 						<a style="text-decoration:none;"   onClick="order_waitpay()" href="javascript:;" title="未支付"><i class="Hui-iconfont">&#xe688;</i></a>
-						<a style="text-decoration:none" class="ml-5" onClick="product_see('订单详情','see?id=${r.id}')" href="javascript:;" title="订单详情"><i class="Hui-iconfont">&#xe725;</i></a>
+						<a style="text-decoration:none" class="ml-5" onClick="product_see('订单详情','seedetails?orders_id=${r.id}')" href="javascript:;" title="订单详情"><i class="Hui-iconfont">&#xe725;</i></a>
 						</td>
 						</c:if>
 						<c:if test="${r.status==1}">
@@ -91,7 +89,7 @@
 						  </c:if>
 						 <td class="td-manage">
 						 <a style="text-decoration:none;" onClick="order_send()" href="javascript:;" title="发货"><i class="Hui-iconfont">&#xe634;</i></a>
-						 <a style="text-decoration:none" class="ml-5" onClick="product_see('商品详情','see?id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
+						 <a style="text-decoration:none" class="ml-5" onClick="product_see('订单详情','seedetails?orders_id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
 						 </td>
 						</c:if>
 						<c:if test="${r.status==2}">
@@ -105,7 +103,7 @@
 						  </c:if>
 						 <td class="td-manage">
 						 <a style="text-decoration:none;" onClick="order_waittake()" href="javascript:;" title="已发货"><i class="Hui-iconfont">&#xe656;</i></a>
-						 <a style="text-decoration:none" class="ml-5" onClick="product_see('商品详情','see?id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
+						 <a style="text-decoration:none" class="ml-5" onClick="product_see('订单详情','seedetails?orders_id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
 						 </td>
 						</c:if>
 						<c:if test="${r.status==3}">
@@ -119,7 +117,7 @@
 						  </c:if>
 						 <td class="td-manage">
 						 <a style="text-decoration:none;" onClick="order_warn()" href="javascript:;" title="提醒评价"><i class="Hui-iconfont">&#xe656;</i></a>
-						 <a style="text-decoration:none" class="ml-5" onClick="product_see('商品详情','see?id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
+						 <a style="text-decoration:none" class="ml-5" onClick="product_see('订单详情','seedetails?orders_id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
 						 </td>
 						</c:if>
 						<c:if test="${r.status==4}">
@@ -133,7 +131,7 @@
 						  </c:if> 
 						 <td class="td-manage" id="content${r.id}"><a id="${r.id}" style="text-decoration:none;"   onClick="order_agree(this,${r.id})" href="javascript:;" title="审核通过"><i class="Hui-iconfont">&#xe6e1;</i></a>
 						<a id="${r.id}1" style="text-decoration:none;" onClick="order_refuse(this,${r.id})" href="javascript:;" title="审核不通过"><i class="Hui-iconfont">&#xe6dd;</i></a>
-						<a style="text-decoration:none" class="ml-5" onClick="product_see('商品详情','see?id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
+						<a style="text-decoration:none" class="ml-5" onClick="product_see('订单详情','seedetails?orders_id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
 						</td>
 						</c:if>
 						<c:if test="${r.status==5}">
@@ -147,7 +145,7 @@
 						  </c:if>
 						 <td class="td-manage">
 						 <a style="text-decoration:none;" onClick="order_return()" href="javascript:;" title="已退货"><i class="Hui-iconfont">&#xe688;</i></a>
-						 <a style="text-decoration:none" class="ml-5" onClick="product_see('商品详情','see?id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
+						 <a style="text-decoration:none" class="ml-5" onClick="product_see('订单详情','seedetails?orders_id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
 						 </td>
 						</c:if>
 						
@@ -162,7 +160,7 @@
 						  </c:if>
 						 <td class="td-manage">
 						 <a style="text-decoration:none;" onClick="order_refused()" href="javascript:;" title="已拒绝申请"><i class="Hui-iconfont">&#xe661;</i></a>
-						 <a style="text-decoration:none" class="ml-5" onClick="product_see('商品详情','see?id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
+						 <a style="text-decoration:none" class="ml-5" onClick="product_see('订单详情','seedetails?orders_id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
 						 </td>
 						</c:if>
 									
@@ -191,7 +189,7 @@ $('.table-sort').dataTable({
 	"aaSorting": [[ 0, "desc" ]],//默认第几个排序
 	"bStateSave": false,//状态保存
 	"aoColumnDefs": [
-	  {"orderable":false,"aTargets":[0,5,6,7,10]}// 制定列不参与排序
+	  {"orderable":false,"aTargets":[4,5,6,9]}// 制定列不参与排序
 	]
 });
 

@@ -70,6 +70,7 @@ function out() {
 </header>
 <aside class="Hui-aside">
 	<div class="menu_dropdown bk_2">
+	<c:if test="${sessionScope.user.power==0}">
 		<dl id="menu-admin">
 			<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
@@ -78,6 +79,7 @@ function out() {
 			   </ul>
 		    </dd>
 	    </dl>
+	    </c:if>
 	    <dl id="menu-product">
 			<dt><i class="Hui-iconfont">&#xe620;</i> 商品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
@@ -117,7 +119,7 @@ function out() {
 			<dt><i class="Hui-iconfont">&#xe60d;</i>用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="member-list.html" data-title="用户列表" href="javascript:;">会员列表</a></li>
+					<li><a data-href="user/user-list" data-title="用户列表" href="javascript:;">用户列表</a></li>
 			</ul>
 		</dd>
 	</dl>

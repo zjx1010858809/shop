@@ -15,6 +15,9 @@ public class Order {
 	String addrname;
 	String uname;
 	String address;
+	
+	String fullname;
+	int count;
 	public static String[] statuss = {"未支付","已支付","已发货","已收货","申请退货","已退货","已拒绝退货"};
 	public static String[] assessstatuss = {"未评价","已评价"};
 	
@@ -39,6 +42,23 @@ public class Order {
 	}
 
 
+
+	
+	public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
 
 	public String getAddrname() {
 		return addrname;

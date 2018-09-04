@@ -19,54 +19,19 @@
 <link href="../lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
-<c:forEach items="${requestScope.list}" var="r">
-    <div style="height: 200px;width: 100%;">
-    <a style="margin-left: 50px">商品全名：</a><a>${r.fullname}</a><br>
-    <a style="margin-left: 50px">商品类型：</a><a>${r.tname}</a><br>
-    <a style="margin-left: 50px">价格：</a><a>${r.price}</a><br>
-    <a style="margin-left: 50px">原价格：</a><a>${r.nowprice}</a><br>
-    <a style="margin-left: 50px">销售数量：</a><a>${r.salecount}</a><br>
-    <a style="margin-left: 50px">收藏人数：</a><a>${r.collectcount}</a><br>
-    <a style="margin-left: 50px">优先级：</a><a>${r.priority}</a><br>
-    <a style="margin-left: 50px">状态：</a><a>${r.status_name}</a><br>
-    <a style="margin-left: 50px">备注：</a><a>${r.comments}</a><br>
-    <a style="margin-left: 50px">商品介绍：</a>
-    </div>
-    <div style="margin-left: 50px;width: 1000px;">${r.info}</div>
-    <div>
-    <a style="margin-left: 50px;font-weight: bold;font-size: 30px;">商品图片：</a>
-    </div>
-    <div style="margin-left: 50px">
-    
-    <c:if test="${r.pic!=null}">
-                <c:forEach items="${r.piclist}" var="p">
-				<img src="${p}"  /> <br>
-				</c:forEach>
-      </c:if>
-        <!--  <img src="${r.pic}" width="200" height="150"  />   -->
-	  
-    </div>
-    
+<a style="margin-left: 50px;font-size: 25px;">订单号：${list[0].code}</a><br>
+<table class="table table-border table-bordered table-bg table-hover table-sort" style="table-layout: fixed;margin:30px;width:1000px; font-size: 20px;">
+<tr class="text-c"><th width="100">商品名</th><th width="50">数量</th><th width="100">备注</th></tr>
+<c:forEach items="${list}" var="r">
+    <tr class="text-c">
+    <td>${r.fullname}</td>
+    <td>${r.count}</td>
+    <td>${r.comments}</td>
+    </tr>
 
 </c:forEach>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</table>
 
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="../lib/jquery/1.9.1/jquery.min.js"></script> 

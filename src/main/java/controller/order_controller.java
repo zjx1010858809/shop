@@ -33,5 +33,12 @@ public class order_controller {
     	List<Order> list = service.byId(id);
     	return list;
     }
+    @RequestMapping("seedetails")
+	  public String see(Integer orders_id,ModelMap m) {
+		  
+		  m.put("list",service.seedetails(orders_id));
+		  
+		return "order/details-see";
+	}
     
 }

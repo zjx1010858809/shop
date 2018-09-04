@@ -28,14 +28,13 @@
 
 <div class="page-container">
 	<div class="page-container">
-		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span>
+		<div class="cl pd-5 bg-1 bk-gray mt-20">
 		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
 		</div>
 		<div class="mt-20">
 			<table class="table table-border table-bordered table-bg table-hover table-sort" style="table-layout: fixed;">
 				<thead>
 					<tr class="text-c">
-						<th width="25"><input name="" type="checkbox" value=""></th>
 						<th width="100">商品名称</th>
 						<th width="50">类型</th>
 						<th width="60">活动信息</th>
@@ -50,7 +49,6 @@
 				<tbody>
 				<c:forEach items="${requestScope.list}" var="r">
 					<tr class="text-c va-m" style="height: 60px;">
-						<td><input name="" type="checkbox" value=""></td>
 						<td>${r.fullname}</td>
 						<td>${r.tname}</td>
 						<td>${r.activity}</td>
@@ -65,7 +63,7 @@
 						        <a style="text-decoration:none; display: none;" id="on${r.id}" onClick="product_start(this,${r.id})" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a> 
 						        <a style="text-decoration:none" class="ml-5" onClick="product_edit('产品编辑','product-edit?id=${r.id}')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> 
 						        <a style="text-decoration:none" class="ml-5" onClick="product_del(this,${r.id})" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
-						         <a style="text-decoration:none" class="ml-5" onClick="product_see('商品详情','see?id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
+						         <a style="text-decoration:none" class="ml-5" onClick="product_see('商品详情','seeproduct?id=${r.id}')" href="javascript:;" title="商品详情"><i class="Hui-iconfont">&#xe725;</i></a>
 						   </td>
 						</c:if>
 						<c:if test="${r.status==1}">
@@ -75,7 +73,7 @@
 						       <a style="text-decoration:none; display: none;" id="off${r.id}" onClick="product_stop(this,${r.id})" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>
 						       <a style="text-decoration:none" class="ml-5" onClick="product_edit('产品编辑','product-edit?id=${r.id}')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> 
 						       <a style="text-decoration:none" class="ml-5" onClick="product_del(this,${r.id})" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
-						       <a style="text-decoration:none" class="ml-5" onClick="product_see('商品详情','see?id=${r.id}')" href="javascript:;" title="查看"><i class="Hui-iconfont">&#xe725;</i></a>
+						       <a style="text-decoration:none" class="ml-5" onClick="product_see('商品详情','seeproduct?id=${r.id}')" href="javascript:;" title="查看"><i class="Hui-iconfont">&#xe725;</i></a>
 						   </td>
 						</c:if>
 						<!--  
@@ -106,7 +104,7 @@ $('.table-sort').dataTable({
 	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
 	"bStateSave": true,//状态保存
 	"aoColumnDefs": [
-	  {"orderable":false,"aTargets":[0,7]}// 制定列不参与排序
+	  {"orderable":false,"aTargets":[7]}// 制定列不参与排序
 	]
 });
 /*产品-添加*/
