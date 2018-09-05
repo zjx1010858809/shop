@@ -215,7 +215,9 @@ function order_send(id) {
 		success:function(res){
 			if(res.status==1){
 				layer.msg('发货成功',{icon:1,time:1000});
-				location.reload();
+				setTimeout(function(){
+					location.reload();
+				}, 1000);
 			}else{
 				layer.msg('请重新发货',{icon:1,time:1000});
 			}
