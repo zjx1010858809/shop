@@ -27,7 +27,7 @@
     
           
           <label class="text-r" width="30%">旧密码：</label>
-          <input name="old" id="old" value="${requestScope.info.id}">
+          <input name="old" type="hidden" id="old" value="${requestScope.info.id}">
           <input name="oldpassword" id="oldpassword" class="input-text" type="password" autocomplete="off" placeholder="密码" tabindex="1" datatype="*6-16" nullmsg="请输入旧密码！" errormsg="4~16个字符，区分大小写！"> 
          
           <label class="text-r" width="30%">新密码：</label>
