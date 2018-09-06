@@ -39,7 +39,7 @@ function out() {
 if(self!=top){
     //不是顶层页面  
       alert("您的登陆已超时，请重新登陆！");  
-      top.location.href="login.jsp";  
+      top.location.href="/shop/login.jsp";  
 }
 </script>
 </head>

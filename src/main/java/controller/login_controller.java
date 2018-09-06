@@ -25,7 +25,7 @@ public class login_controller {
     	    }else if(service.selectbynike(a).get(0).getPassword().equals(a.getMd5())) {
     	    
     	    	session.setAttribute("user",service.selectbynike(a).get(0));
-    	    	session.setMaxInactiveInterval(6000);
+    	    	session.setMaxInactiveInterval(600);
     	    	
     			
     			session.removeAttribute("msg");

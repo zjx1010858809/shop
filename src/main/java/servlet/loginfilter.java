@@ -27,10 +27,10 @@ public class loginfilter implements Filter {
 		    	fc.doFilter(req, resp);
 		    	return;
 		    }
-		    if(req.getSession().getAttribute("user")!=null||req.getAttribute("nike")!=null||req.getRequestURI().equals("/login")) {
+		    if(req.getSession().getAttribute("user")!=null||req.getParameter("nike")!=null||req.getRequestURI().equals("/shop/login.jsp")) {
 				fc.doFilter(req, resp);
 			}else {
-				resp.sendRedirect("../shop/login.jsp");
+				resp.sendRedirect("/shop/login.jsp");
 			}
 		
 	}
