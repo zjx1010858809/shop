@@ -108,11 +108,11 @@
 						</c:if>
 						<c:if test="${r.status==3}">
 						  <c:if test="${r.assessstatus==0}">
-						<td class="td-status"><span class="label label-success radius" id="mainContent${r.id}">${r.status_name}</span></td>
+						<td class="td-status"><span class="label label-danger radius" id="mainContent${r.id}">${r.status_name}</span></td>
 						<td class="td-status"><span class="label label-disabled radius" id="mainContent${r.id}">${r.assessstatus_name}</span></td>
 						  </c:if>
 						  <c:if test="${r.assessstatus==1}">
- 						<td class="td-status"><span class="label label-success radius" id="mainContent${r.id}">${r.status_name}</span></td>
+ 						<td class="td-status"><span class="label label-danger radius" id="mainContent${r.id}">${r.status_name}</span></td>
  						<td class="td-status"><span class="label label-success radius" id="mainContent${r.id}">${r.assessstatus_name}</span></td>
 						  </c:if>
 						 <td class="td-manage">
