@@ -14,6 +14,7 @@ import jsonInfo.searchInfo;
 import service.admin_service;
 
 
+
 @Controller
 @RequestMapping("admin")
 public class admin_controller {
