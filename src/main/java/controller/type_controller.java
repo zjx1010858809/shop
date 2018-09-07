@@ -39,7 +39,7 @@ public class type_controller {
 	  public void selectproduct(ModelMap m) {
 		  m.put("list",pservice.select());
 	  }
-	  @RequestMapping("product-list-typeid")         //��������id��ѯ��Ʒ
+	  @RequestMapping("product-list-typeid")
 	  public void productByid(ModelMap m,int id) {
 		  m.put("list1",id);
 		  m.put("list",pservice.byTypeid(id));
