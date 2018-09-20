@@ -38,7 +38,7 @@
 	<!-- 静态资源处理 -->
 	<mvc:default-servlet-handler/>
      
-	<!-- <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/> -->
+	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
 
 	<!-- 控制器适配 -->
 	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />

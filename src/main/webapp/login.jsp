@@ -26,7 +26,7 @@ var a=0;
 </head>
 <body>
 <input type="hidden" id="TenantId" name="TenantId" value="" />
-<div class="header" style="text-align: center;font-size: 45px;color: white;"><b>JIAXIANGSHOP</b></div>
+<div class="header" style="text-align: center;font-size: 45px;color: white;"><b>EASYSHOP</b></div>
 <div class="loginWraper">
   <div id="loginform" class="loginBox">
     <form class="form form-horizontal" action="admin-login" method="post">
@@ -60,7 +60,7 @@ var a=0;
     </div>
   </div>
 </div>
-<div class="footer">Copyright JIAXIANGSHOP</div>
+<div class="footer">Copyright EASYSHOP</div>
 <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
 
