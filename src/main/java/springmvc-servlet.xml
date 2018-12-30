@@ -15,7 +15,7 @@
         	<property name="username" value="root" />  
         	<property name="password" value="123" />  
     	</bean>
-    	
+
     	<mvc:resources location="/ueditor/" mapping="/ueditor/**"/>
     	<mvc:resources location="/lib/" mapping="/lib/**"/>
     	<mvc:resources location="/static/" mapping="/static/**"/>

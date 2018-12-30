@@ -19,7 +19,11 @@ public class login_controller {
     	    if(!((String) session.getAttribute("randomCode")).equalsIgnoreCase(code)) {
     	    	session.setAttribute("msg", "验证码错误！");
     	    	return "login";
+    	    }else if(service.selectbynike(a)==null) {
+    	    	session.setAttribute("msg", "用户名不存在！");
+    	    	return "login";
     	    }else if(service.selectbynike(a).get(0).getStatus()==1) {
+    	    	System.out.println(1111);
     	    	session.setAttribute("msg", "账户已冻结！");
     	    	return "login";
     	    }else if(service.selectbynike(a).get(0).getPassword().equals(a.getMd5())) {
@@ -32,6 +36,7 @@ public class login_controller {
     			m.put("list",service.selectbynike(a).get(0));
     			return "index";
     		}else {
+    			System.out.println(222);
     			session.setAttribute("msg", "用户名或密码错误请重新输入！");
    			return "login";
     		}
